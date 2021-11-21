@@ -1,0 +1,50 @@
+description: >
+  Allows executing 
+
+executor: default
+
+parameters:
+  repository-url:
+    type: string
+    default: REPOSITORY_URL
+    description: "SSH url to the repository to be cloned. Default: $REPOSITORY_URL"
+  branch:
+    type: string
+    default: "main"
+    description: "Branch to check. Default: \"main\""
+  ssh-key:
+    type: string 
+    default: SSH_KEY
+    description: "Base64 encoded of SSH private key. Default: $SSH_KEY"
+  previous-hash:
+    type: string 
+    default: CIRCLE_SHA1
+    description: "Commit hash of the previous commit to HEAD. Default: $CIRCLE_SHA1"
+  property-path:
+    type: string
+    default: "version"
+    description: "Property path in dot notation to the Version code in the json file. Default: \"version\""
+  file-path:
+    type: string
+    default: "package.json"
+    description: "File path to the json file with the Version code. Default: \"package.json\""
+  version-tag-prefix:
+    type: string
+    default: "v"
+    description: "Prefix for the git tag. Default\"v\""
+  version-tag-suffix:
+    type: string
+    default: ""
+    description: "Suffix for the git tag. Default\"\""
+
+steps:
+  - main:
+      install-path: << parameters.install-path >>
+      repository-url: << parameters.repository-url >>
+      branch: << parameters.branch >>
+      ssh-key: << parameters.ssh-key >>
+      previous-hash: << parameters.previous-hash >>
+      property-path: << parameters.property-path >>
+      file-path: << parameters.file-path >>
+      version-tag-prefix: << parameters.version-tag-prefix >>
+      version-tag-suffix: << parameters.version-tag-suffix >>
