@@ -36,10 +36,10 @@ parameters:
 
 steps:
   - run:
-    name: Install CLI
-    command: |
-      curl github....
-      mv ./cli /usr/bin
+      name: Install CLI
+      command: |
+        curl github....
+        mv ./cli /usr/bin
   - run:
       environment:
         REPOSITORY_URL: <<parameters.repository-url>>
@@ -50,7 +50,7 @@ steps:
         --Branch=<< parameters.branch >> \
         --SshKey=<< parameters.ssh-key >> \
         --PreviousHash=<< parameters.previous-hash >> \
-        --PropertyPath=<< parameters.property-hash >> \
+        --PropertyPath=<< parameters.property-path >> \
         --FilePath=<< parameters.file-path >> \
         --VersionTagPrefix=<< parameters.version-tag-prefix >> \
         --VersionTagSuffix=<< parameters.version-tag-suffix>> \

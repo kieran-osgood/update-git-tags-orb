@@ -1,10 +1,7 @@
 description: >
   This is a sample executor using Docker and Node.
 docker:
-  - image: 'cimg/go:<<parameters.tag>>'
-parameters:
-  tag:
-    default: "1.17.3"
-    type: string
-    description: >
-       Version of cimg/go:x.y.z to use 
+  - image: kieranosgood/update-git-tags-orb:0.0.1
+    auth:
+      username: kieranosgood
+      password: $DOCKERHUB_PASSWORD  # or project environment variable reference

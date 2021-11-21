@@ -1,5 +1,5 @@
 description: >
-  Allows executing 
+  Allows executing
 
 executor: default
 
@@ -13,11 +13,11 @@ parameters:
     default: "main"
     description: "Branch to check. Default: \"main\""
   ssh-key:
-    type: string 
+    type: string
     default: SSH_KEY
     description: "Base64 encoded of SSH private key. Default: $SSH_KEY"
   previous-hash:
-    type: string 
+    type: string
     default: CIRCLE_SHA1
     description: "Commit hash of the previous commit to HEAD. Default: $CIRCLE_SHA1"
   property-path:
@@ -39,7 +39,6 @@ parameters:
 
 steps:
   - main:
-      install-path: << parameters.install-path >>
       repository-url: << parameters.repository-url >>
       branch: << parameters.branch >>
       ssh-key: << parameters.ssh-key >>
