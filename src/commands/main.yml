@@ -1,0 +1,56 @@
+description: >
+  This command runs the cli tool passing through parameters defined in the `run` job.
+parameters:
+  branch:
+    type: string
+    default: ""
+    description: "Branch to check. Default: \"main\""
+  file-path:
+    type: string
+    default: "package.json"
+    description: "File path to the json file with the Version code. Default: \"package.json\""
+  previous-hash:
+    type: string
+    default: "$CIRCLE_SHA1"
+    description: "Commit hash of the previous commit to HEAD. Default: $CIRCLE_SHA1"
+  property-path:
+    type: string
+    default: "version"
+    description: "Property path in dot notation to the Version code in the json file. Default: \"version\""
+  repository-url:
+    type: string
+    default: ""
+    description: "SSH url to the repository to be cloned. Default: $REPOSITORY_URL"
+  ssh-key:
+    type: string
+    default: "$SSH_KEY"
+    description: "Base64 encoded of SSH private key. Default: $SSH_KEY"
+  version-tag-prefix:
+    type: string
+    default: "v"
+    description: "Prefix for the git tag. Default\"v\""
+  version-tag-suffix:
+    type: string
+    default: ""
+    description: "Suffix for the git tag. Default\"\""
+
+steps:
+  - run:
+    name: Install CLI
+    command: |
+      curl github....
+      mv ./cli /usr/bin
+  - run:
+      environment:
+        REPOSITORY_URL: <<parameters.repository-url>>
+      name: Update Git Tags
+      command: |
+       ./update-git-tags \
+        --RepositoryUrl=<< parameters.repository-url >> \
+        --Branch=<< parameters.branch >> \
+        --SshKey=<< parameters.ssh-key >> \
+        --PreviousHash=<< parameters.previous-hash >> \
+        --PropertyPath=<< parameters.property-hash >> \
+        --FilePath=<< parameters.file-path >> \
+        --VersionTagPrefix=<< parameters.version-tag-prefix >> \
+        --VersionTagSuffix=<< parameters.version-tag-suffix>> \
