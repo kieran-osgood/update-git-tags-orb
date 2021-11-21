@@ -39,7 +39,6 @@ parameters:
 
 steps:
   - main:
-      install-path: << parameters.install-path >>
       repository-url: << parameters.repository-url >>
       branch: << parameters.branch >>
       ssh-key: << parameters.ssh-key >>
