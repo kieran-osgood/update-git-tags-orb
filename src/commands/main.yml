@@ -1,5 +1,6 @@
 description: >
   This command runs the cli tool passing through parameters defined in the `run` job.
+
 parameters:
   branch:
     type: string
@@ -11,7 +12,7 @@ parameters:
     description: "File path to the json file with the Version code. Default: \"package.json\""
   previous-hash:
     type: string
-    default: "$CIRCLE_SHA1"
+    default: $CIRCLE_SHA1
     description: "Commit hash of the previous commit to HEAD. Default: $CIRCLE_SHA1"
   property-path:
     type: string
@@ -19,11 +20,11 @@ parameters:
     description: "Property path in dot notation to the Version code in the json file. Default: \"version\""
   repository-url:
     type: string
-    default: ""
+    default: $REPOSITORY_URL
     description: "SSH url to the repository to be cloned. Default: $REPOSITORY_URL"
   ssh-key:
     type: string
-    default: "$SSH_KEY"
+    default: $SSH_KEY
     description: "Base64 encoded of SSH private key. Default: $SSH_KEY"
   version-tag-prefix:
     type: string
