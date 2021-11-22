@@ -6,7 +6,7 @@ executor: default
 parameters:
   repository-url:
     type: string
-    default: REPOSITORY_URL
+    default: $REPOSITORY_URL
     description: "SSH url to the repository to be cloned. Default: $REPOSITORY_URL"
   branch:
     type: string
@@ -14,11 +14,11 @@ parameters:
     description: "Branch to check. Default: \"main\""
   ssh-key:
     type: string
-    default: SSH_KEY
+    default: $SSH_KEY
     description: "Base64 encoded of SSH private key. Default: $SSH_KEY"
   previous-hash:
     type: string
-    default: CIRCLE_SHA1
+    default: $CIRCLE_SHA1
     description: "Commit hash of the previous commit to HEAD. Default: $CIRCLE_SHA1"
   property-path:
     type: string
