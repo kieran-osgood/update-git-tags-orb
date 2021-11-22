@@ -44,7 +44,7 @@ steps:
         PREVIOUS_HASH: "<<parameters.previous-hash>>"
       command: |
         echo "<<parameters.repository-url>>"
-        echo $CIRCLE_CI 
+        echo $CIRCLE_CI
         update-git-tags \
           --Branch=<<parameters.branch>> \
           --PropertyPath=<<parameters.property-path>> \
