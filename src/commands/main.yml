@@ -37,16 +37,17 @@ parameters:
 
 steps:
   - run:
-      environment:
-        REPOSITORY_URL: <<parameters.repository-url>>
       name: Update Git Tags
+      environment:
+        REPOSITORY_URL: "<<parameters.repository-url>>"
+        SSH_KEY: "<<parameters.ssh-key>>"
+        PREVIOUS_HASH: "<<parameters.previous-hash>>"
       command: |
-       update-git-tags \
-        --RepositoryUrl=<< parameters.repository-url >> \
-        --Branch=<< parameters.branch >> \
-        --SshKey=<< parameters.ssh-key >> \
-        --PreviousHash=<< parameters.previous-hash >> \
-        --PropertyPath=<< parameters.property-path >> \
-        --FilePath=<< parameters.file-path >> \
-        --VersionTagPrefix=<< parameters.version-tag-prefix >> \
-        --VersionTagSuffix=<< parameters.version-tag-suffix>> \
+        echo "<<parameters.repository-url>>"
+        echo $CIRCLE_CI 
+        update-git-tags \
+          --Branch=<<parameters.branch>> \
+          --PropertyPath=<<parameters.property-path>> \
+          --FilePath=<<parameters.file-path>> \
+          --VersionTagPrefix=<<parameters.version-tag-prefix>> \
+          --VersionTagSuffix=<<parameters.version-tag-suffix>> \
