@@ -36,16 +36,11 @@ parameters:
 
 steps:
   - run:
-      name: Install CLI
-      command: |
-        curl github....
-        mv ./cli /usr/bin
-  - run:
       environment:
         REPOSITORY_URL: <<parameters.repository-url>>
       name: Update Git Tags
       command: |
-       ./update-git-tags \
+       update-git-tags \
         --RepositoryUrl=<< parameters.repository-url >> \
         --Branch=<< parameters.branch >> \
         --SshKey=<< parameters.ssh-key >> \
